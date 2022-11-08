@@ -6,6 +6,7 @@ const Container = styled.div`
   position: fixed;
   top: 2em;
   right: 2em;
+  text-align: right;
 `
 
 const Link = styled.a`
