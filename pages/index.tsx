@@ -34,7 +34,7 @@ export default function Home() {
         {
           data &&
             <Description>
-              <h1>Welcome, {data?.user?.name ?? data?.user?.email}!</h1>
+              Welcome, {data?.user?.name ?? data?.user?.email}!
             </Description>
           }
           {
