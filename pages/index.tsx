@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import { useSession } from 'next-auth/react'
 
 export default function Home() {
-  const { data, status } = useSession()
+  const { data, status } = useSession() || {}
   const loading = status === "loading"
   return (
     <div className={styles.container}>
@@ -27,7 +27,6 @@ export default function Home() {
           !data &&
             <>
               <p className={styles.title}>Please log in to continue</p>
-              <img src="no-user.jpg" alt="" className={styles.avatar} />               
             </>
           }
       </main>
