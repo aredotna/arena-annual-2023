@@ -25,7 +25,7 @@ const Description = styled.div`
 export default function Home() {
   const client = useArena()
 
-  client?.channel('arena-influences').get().then((channel) => {
+  client?.channel('art').get().then((channel) => {
     console.log({ channel })
   })
 
