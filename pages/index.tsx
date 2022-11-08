@@ -1,5 +1,10 @@
 import Head from 'next/head'
 import { useSession } from 'next-auth/react'
+import styled from "styled-components"
+
+const Description = styled.p`
+  font-size: 1.5rem;
+`
 
 export default function Home() {
   const session = useSession() || {}
@@ -20,10 +25,9 @@ export default function Home() {
         {loading && !data && <div>Loading...</div>}
         {
           data &&
-            <>
+            <Description>
               <h1>Welcome, {data?.user?.name ?? data?.user?.email}!</h1>
-              <p style={{ marginBottom: '10px' }}> </p> <br />
-            </>
+            </Description>
           }
           {
           !data && !loading &&
