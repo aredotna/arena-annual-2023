@@ -11,7 +11,6 @@ export const useArena = () => {
     if (data) {
       const typedData = data as any;
       const accessToken = typedData.user.accessToken
-      console.log()
       const arena = new ArenaClient({
         token: accessToken,
       });

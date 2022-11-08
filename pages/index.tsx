@@ -25,9 +25,9 @@ const Description = styled.div`
 export default function Home() {
   const client = useArena()
 
-  client?.channel('art').get().then((channel) => {
-    console.log({ channel })
-  })
+  // client?.channel('art').get().then((channel) => {
+  //   console.log({ channel })
+  // })
 
   return (
     <div>
@@ -39,6 +39,9 @@ export default function Home() {
 
       <Container>
         <AuthButton />
+        <Description>
+          <strong>In Service Of</strong>
+        </Description>
       </Container>
     </div>
   )
