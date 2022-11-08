@@ -30,7 +30,13 @@ const options = {
         return data
       }
     }
-  ]
+  ],
+  callbacks: {
+    session: async (session, user) => {
+      console.log({ session, user })
+      return Promise.resolve(session)
+    }
+  }
 }
 
 console.log({ options })
