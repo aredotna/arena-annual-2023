@@ -59,11 +59,17 @@ const options = {
       if (account) {
         token.accessToken = account.access_token
         token.id = profile.id
+        token.username = profile.username
       }
       return token
     },
     session: async ({ session, user, token }) => {
       console.log({ session, user, 'session.user': session.user, token })
+      const data = {
+        id: token.id,
+        accessToken: token.accessToken,
+        username: token.username
+      }
       return Promise.resolve(session)
     }
   }
