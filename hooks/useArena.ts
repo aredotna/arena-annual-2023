@@ -10,7 +10,8 @@ export const useArena = () => {
   useEffect(() => {
     if (data) {
       const typedData = data as any;
-      const accessToken = typedData.accessToken
+      const accessToken = typedData.user.accessToken
+      console.log()
       const arena = new ArenaClient({
         token: accessToken,
       });
