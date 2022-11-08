@@ -17,6 +17,7 @@ const options = {
       clientId: process.env.ARENA_CLIENT_ID,
       clientSecret: process.env.NEXTAUTH_SECRET,
       profile: (profile) => {
+        console.log({ profile })
         return {
           id: profile.id,
           name: profile.name,
