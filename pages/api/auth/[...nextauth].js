@@ -17,13 +17,14 @@ const options = {
       clientId: process.env.ARENA_CLIENT_ID,
       clientSecret: process.env.NEXTAUTH_SECRET,
       profile: (profile) => {
+        console.log({ profile })
+
         const data = {
           id: profile.id,
-          name: profile.name,
           email: profile.email,
           username: profile.username
         }
-        
+
         console.log({ profile, data })
 
         return data
