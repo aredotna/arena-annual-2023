@@ -13,23 +13,25 @@ const options = {
         }
       },
       token: 'https://dev.are.na/oauth/token',
-      userinfo: {
-        url: 'https://api.are.na/v2/me',
-        method: 'GET',
-        async request({ client, tokens }) {
-          console.log({ client, tokens })
+      userinfo: 'https://api.are.na/v2/me',
+      // userinfo: {
+      //   url: 'https://api.are.na/v2/me',
+      //   method: 'GET',
+      //   async request({ client, tokens }) {
+      //     console.log({ client, tokens })
 
-          const { data } = await client.get('https://api.are.na/v2/me')
+      //     const { data } = await client.get('https://api.are.na/v2/me')
 
-          return {
-            data: {
-              id: data.id,
-              email: data.email,
-              username: data.username
-            }
-          }
-        }
-      },
+      //     return {
+      //       data: {
+      //         id: data.id,
+      //         email: data.email,
+      //         username: data.username
+      //       }
+      //     }
+      //   }
+      // },
+      idToken: true,
       clientId: process.env.ARENA_CLIENT_ID,
       clientSecret: process.env.NEXTAUTH_SECRET,
 
