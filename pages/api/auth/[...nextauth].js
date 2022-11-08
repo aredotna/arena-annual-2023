@@ -6,6 +6,7 @@ const options = {
       id: 'arena',
       name: 'Are.na',
       type: 'oauth',
+      scope: 'write read',
       authorization: 'https://dev.are.na/oauth/authorize',
       token: 'https://dev.are.na/oauth/token',
       userinfo: 'https://api.are.na/v2/me',
