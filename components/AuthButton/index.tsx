@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSession, signIn } from 'next-auth/react'
+import { useSession, signIn, signOut } from 'next-auth/react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -27,6 +27,7 @@ export const AuthButton: React.FC = () => {
       {data && (
         <Container>
           Logged in as {data?.user?.name}
+          <a onClick={() => signOut()}>Sign out</a>
         </Container>
       )}
 

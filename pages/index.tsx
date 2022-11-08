@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useSession } from 'next-auth/react'
 import styled from "styled-components"
-import { AuthButton } from "../components/AuthHeader"
+import { AuthButton } from "../components/AuthButton"
 
 const Container = styled.div`
   display: flex;
