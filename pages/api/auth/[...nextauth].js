@@ -11,7 +11,7 @@ const options = {
       token: 'https://dev.are.na/oauth/token',
       userinfo: 'https://api.are.na/v2/me',
       clientId: process.env.ARENA_CLIENT_ID,
-      clientSecret: process.env.ARENA_CLIENT_SECRET,
+      clientSecret: process.env.NEXTAUTH_SECRET,
       profile: (profile) => {
         return {
           id: profile.id,
