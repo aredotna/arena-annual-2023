@@ -2,6 +2,12 @@ import Head from 'next/head'
 import { useSession } from 'next-auth/react'
 import styled from "styled-components"
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+`;
+
 const Description = styled.div`
   font-size: 1.25rem;
   margin-bottom: 2rem;
@@ -29,7 +35,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <Container>
         {loading && !data && <div>Loading...</div>}
         {
           data &&
@@ -43,7 +49,7 @@ export default function Home() {
               <p>Please log in to continue</p>
             </>
           }
-      </main>
+      </Container>
     </div>
   )
 }
