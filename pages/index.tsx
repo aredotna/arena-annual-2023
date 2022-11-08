@@ -2,9 +2,17 @@ import Head from 'next/head'
 import { useSession } from 'next-auth/react'
 import styled from "styled-components"
 
-const Description = styled.p`
-  font-size: 1.5rem;
-`
+const Description = styled.div`
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  line-height: 1.5rem;
+  width: 50vw;
+
+  @media only screen and (max-width: 900px) {
+    position: static;
+    width: auto;
+  }
+`;
 
 export default function Home() {
   const session = useSession() || {}
