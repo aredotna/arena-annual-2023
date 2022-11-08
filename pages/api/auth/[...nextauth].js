@@ -1,5 +1,7 @@
 import NextAuth from 'next-auth'
 
+console.log({ ARENA_CLIENT_ID: process.env.ARENA_CLIENT_ID, ARENA_CLIENT_SECRET: process.env.ARENA_CLIENT_SECRET })
+
 const options = {
   providers: [
     {
