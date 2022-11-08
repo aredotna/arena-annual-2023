@@ -53,6 +53,15 @@ const options = {
     secret: process.env.NEXTAUTH_SECRET
   },
   callbacks: {
+    async jwt({ token, account, profile }) {
+      // Persist the OAuth access_token and or the user id to the token right after signin
+      console.log({ token, account, profile } )
+      if (account) {
+        token.accessToken = account.access_token
+        token.id = profile.id
+      }
+      return token
+    },
     session: async ({ session, user, token }) => {
       console.log({ session, user, 'session.user': session.user, token })
       return Promise.resolve(session)
