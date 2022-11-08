@@ -68,7 +68,7 @@ const options = {
       const data = {
         id: token.id,
         accessToken: token.accessToken,
-        username: token.username
+        name: token.username
       }
       return Promise.resolve({
         ...session,
