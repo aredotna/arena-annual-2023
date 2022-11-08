@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import { useSession } from 'next-auth/react'
 
 export default function Home() {
-  const { data: session, status } = useSession()
+  const { data, status } = useSession()
   const loading = status === "loading"
   return (
     <div className={styles.container}>
@@ -17,14 +17,14 @@ export default function Home() {
       <main className={styles.main}>
         {loading && <div className={styles.title}>Loading...</div>}
         {
-          session &&
+          data &&
             <>
-              <h1 className={styles.title}>Welcome, {session?.user?.name ?? session?.user?.email}!</h1>
+              <h1 className={styles.title}>Welcome, {data?.user?.name ?? data?.user?.email}!</h1>
               <p style={{ marginBottom: '10px' }}> </p> <br />
             </>
           }
           {
-          !session &&
+          !data &&
             <>
               <p className={styles.title}>Please log in to continue</p>
               <img src="no-user.jpg" alt="" className={styles.avatar} />               
