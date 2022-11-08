@@ -53,8 +53,8 @@ const options = {
     secret: process.env.NEXTAUTH_SECRET
   },
   callbacks: {
-    session: async (session, user) => {
-      console.log({ session, user, 'session.user': session.user })
+    session: async ({ session, user, token }) => {
+      console.log({ session, user, 'session.user': session.user, token })
       return Promise.resolve(session)
     }
   }
