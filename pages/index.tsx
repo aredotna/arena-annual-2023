@@ -4,10 +4,11 @@ import styles from '../styles/Home.module.css'
 import { useSession } from 'next-auth/react'
 
 export default function Home() {
-  const { data, status } = useSession() || {}
-  const loading = status === "loading"
+  const session = useSession() || {}
+  const { data, status } = session
 
-  console.log({ data })
+  const loading = status === "loading"
+  console.log({ data, session })
 
   return (
     <div className={styles.container}>
