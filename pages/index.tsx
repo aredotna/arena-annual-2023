@@ -6,6 +6,9 @@ import { useSession } from 'next-auth/react'
 export default function Home() {
   const { data, status } = useSession() || {}
   const loading = status === "loading"
+
+  console.log({ data })
+
   return (
     <div className={styles.container}>
       <Head>
