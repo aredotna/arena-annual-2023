@@ -31,7 +31,6 @@ const options = {
       //     }
       //   }
       // },
-      idToken: true,
       clientId: process.env.ARENA_CLIENT_ID,
       clientSecret: process.env.NEXTAUTH_SECRET,
 
