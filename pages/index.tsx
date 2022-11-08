@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useSession } from 'next-auth/react'
 import styled from "styled-components"
+import { AuthButton } from "../components/AuthHeader"
 
 const Container = styled.div`
   display: flex;
@@ -36,19 +37,7 @@ export default function Home() {
       </Head>
 
       <Container>
-        {loading && !data && <div>Loading...</div>}
-        {
-          data &&
-            <Description>
-              Welcome, {data?.user?.name ?? data?.user?.email}!
-            </Description>
-          }
-          {
-          !data && !loading &&
-            <>
-              <p>Please log in to continue</p>
-            </>
-          }
+        <AuthButton />
       </Container>
     </div>
   )
