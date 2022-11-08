@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import { useSession } from 'next-auth/react'
 
 export default function Home() {
@@ -11,26 +9,26 @@ export default function Home() {
   console.log({ data, session })
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>In Service Of / Are.na</title>
         <meta name="description" content="On the occassion of the Are.na Annual 2023" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        {loading && <div className={styles.title}>Loading...</div>}
+      <main>
+        {loading && !data && <div>Loading...</div>}
         {
           data &&
             <>
-              <h1 className={styles.title}>Welcome, {data?.user?.name ?? data?.user?.email}!</h1>
+              <h1>Welcome, {data?.user?.name ?? data?.user?.email}!</h1>
               <p style={{ marginBottom: '10px' }}> </p> <br />
             </>
           }
           {
-          !data &&
+          !data && !loading &&
             <>
-              <p className={styles.title}>Please log in to continue</p>
+              <p>Please log in to continue</p>
             </>
           }
       </main>
