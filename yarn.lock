@@ -471,6 +471,11 @@ ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
+arena-ts@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/arena-ts/-/arena-ts-0.1.2.tgz#21729c466fee76fe3af86e577af0e12a8b3c617a"
+  integrity sha512-37hR3n0lcgJ/yh2ctpkrD5F3PpHt6xoFWUyqWG8XdzVLfhbGGNgrE96PNha2Aqn8qVZu0IPJXbg7FqJN+abz3A==
+
 argparse@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"

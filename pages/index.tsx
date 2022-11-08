@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useSession } from 'next-auth/react'
 import styled from "styled-components"
 import { AuthButton } from "../components/AuthButton"
+import { useArena } from '../hooks/useArena';
 
 const Container = styled.div`
   display: flex;
@@ -22,11 +23,11 @@ const Description = styled.div`
 `;
 
 export default function Home() {
-  const session = useSession() || {}
-  const { data, status } = session
+  const client = useArena()
 
-  const loading = status === "loading"
-  console.log({ data, session })
+  client?.channel('arena-influences').get().then((channel) => {
+    console.log({ channel })
+  })
 
   return (
     <div>
