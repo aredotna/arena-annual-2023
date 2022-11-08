@@ -8,6 +8,11 @@ const Container = styled.div`
   right: 2em;
 `
 
+const Link = styled.a`
+  display: block;
+  cursor: pointer;
+`
+
 export const AuthButton: React.FC = () => {
   const session = useSession() || {}
   const { data, status } = session
@@ -27,14 +32,14 @@ export const AuthButton: React.FC = () => {
       {data && (
         <Container>
           Logged in as {data?.user?.name}
-          <a onClick={() => signOut()}>Sign out</a>
+          <Link onClick={() => signOut()}>Sign out</Link>
         </Container>
       )}
 
       {!data && (
         <Container>
           Not logged in
-          <a onClick={() => signIn('arena')}>Sign in</a>
+          <Link onClick={() => signIn('arena')}>Sign in</Link>
         </Container>
       )}
     </>
