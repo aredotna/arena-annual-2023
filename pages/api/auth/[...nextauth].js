@@ -33,7 +33,7 @@ const options = {
   ],
   callbacks: {
     session: async (session, user) => {
-      console.log({ session, user })
+      console.log({ session, user, 'session.user': session.user })
       return Promise.resolve(session)
     }
   }
