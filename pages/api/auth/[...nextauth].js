@@ -70,7 +70,10 @@ const options = {
         accessToken: token.accessToken,
         username: token.username
       }
-      return Promise.resolve(session)
+      return Promise.resolve({
+        ...session,
+        user: data
+      })
     }
   }
 }
