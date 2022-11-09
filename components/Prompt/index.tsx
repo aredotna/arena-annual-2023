@@ -17,6 +17,7 @@ const Link = styled.a`
 
 const Label = styled.div`
   font-size: 1.5rem;
+  text-align: center;
 `
 
 const Input = styled.input`
@@ -25,6 +26,13 @@ const Input = styled.input`
   margin: 0.5rem;
   border: none;
   border-bottom: 1px solid #2f2f2f;
+`
+
+const Button = styled.button`
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border: 1px solid #2f2f2f;
 `
 
 interface PromptProps {
@@ -39,7 +47,10 @@ export const Prompt: React.FC<PromptProps> = ({
     <Container loggedIn={loggedIn}>
       {!loggedIn && <><Link onClick={() => signIn('arena')}>Sign in</Link> to add your entry</>}
       {loggedIn && (
-        <Label>{user.name} is in service of <Input /></Label>
+        <>
+          <Label>{user.name} is in service of <Input /></Label>
+          <Button>Add entry</Button>
+        </>
       )}
     </Container>
   )
