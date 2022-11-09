@@ -30,10 +30,18 @@ export const Entries: React.FC = () => {
   return (
     <Container>
       {entries.map((entry) => {
+        if (!entry) return null
+        if (entry.base_class !== 'Block' || entry.class !== 'Text') return null
+        if (!entry.content) return null
+
+        const string = `${entry.content} as a Service`
+        // get the first letter of each word
+        const acronym = string.match(/\b(\w)/g)?.join('')
+    
         return (
           <div key={entry.id}>
             {entry.base_class === 'Block' && entry.class == 'Text' && (
-              <EntryLine><a href={`https://www.are.na/${entry.user.slug}`}>{entry.user.username}</a>: {entry.content} as a Service</EntryLine>
+              <EntryLine><a href={`https://www.are.na/${entry.user.slug}`}>{entry.user.username}</a>: {entry.content} as a Service ({acronym})</EntryLine>
             )}
           </div>
         )
