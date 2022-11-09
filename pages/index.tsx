@@ -51,7 +51,8 @@ export default function Home() {
             What else can be considered as a service?
           </p>
           <p>
-            Filling in the blank below will add to this page and populate the channel “<a href="https://www.are.na/are-na-team/______-as-a-service">_____ as a service.</a>” Selected entries will be published in the 2023 Are.na Annual, out in January. 
+            Filling in the blank below will add to this page and populate the channel “<a href="https://www.are.na/are-na-team/______-as-a-service">_____ as a service.</a>” <br/>
+            Selected entries will be published in the 2023 Are.na Annual, out in January. 
           </p>
         </Description>
 
