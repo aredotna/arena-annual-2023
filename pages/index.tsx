@@ -2,7 +2,8 @@ import Head from 'next/head'
 import { useSession } from 'next-auth/react'
 import styled from "styled-components"
 import { AuthButton } from "../components/AuthButton"
-import { useArena } from '../hooks/useArena';
+import { useArena } from '../hooks/useArena'
+import { Prompt } from '../components/Prompt'
 
 const Container = styled.div`
   display: flex;
@@ -23,11 +24,9 @@ const Description = styled.div`
 `;
 
 export default function Home() {
-  const client = useArena()
-
-  // client?.channel('art').get().then((channel) => {
-  //   console.log({ channel })
-  // })
+  const { data, status } = useSession() || {}
+  const loading = status === "loading"
+  const user = data?.user as any
 
   return (
     <div>
@@ -41,7 +40,24 @@ export default function Home() {
         <AuthButton />
         <Description>
           <strong>In Service Of</strong>
+          <p>
+            <strong>“service"</strong> as in – <br/>
+            an act of helping or supplying;<br/> 
+            to repair or maintain;<br /> 
+            to provide a public need;<br/>
+            a meeting for worship,<br/>
+            a place to refuel
+          </p>
+          <p>
+            For the <a href="https://www.are.na/blog/open-call-for-pitches-for-the-2023-are-na-annual">2023 Are.na Annual</a>, we are asking ourselves: <br/>
+            What is it we are in service of? <br/>
+          </p>
+          <p>
+            We will publish all selected entries in the 2023 Are.na Annual.
+          </p>
         </Description>
+
+        {!loading && <Prompt user={user} />}
       </Container>
     </div>
   )
