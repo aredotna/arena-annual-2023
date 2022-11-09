@@ -4,10 +4,10 @@ import styled from 'styled-components'
 
 const Container = styled.div<{ loggedIn: boolean }>`
   padding: 2rem;
+  text-align: center;
 
   ${props => !props.loggedIn && `
     background: #f5f5f5;
-    text-align: center;
   `}
 `
 
@@ -33,6 +33,8 @@ const Button = styled.button`
   padding: 0.5rem;
   margin: 0.5rem;
   border: 1px solid #2f2f2f;
+  border-radius: 0.5rem;
+  background: #eee;
 `
 
 interface PromptProps {
