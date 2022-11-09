@@ -40,7 +40,7 @@ export const Entries: React.FC = () => {
         return (
           <div key={entry.id}>
             {entry.base_class === 'Block' && entry.class == 'Text' && (
-              <EntryLine><a href={`https://www.are.na/${entry.user.slug}`}>{entry.user.username}</a>: {entry.content} as a Service ({acronym})</EntryLine>
+              <EntryLine><a href={`https://www.are.na/${entry.user.slug}`} target="_blank">{entry.user.username}</a>: {entry.content} as a Service ({acronym})</EntryLine>
             )}
           </div>
         )
