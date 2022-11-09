@@ -40,7 +40,7 @@ export default function Home() {
         <Description>
           <strong>_____ as a Service</strong>
           <p>
-            <strong>&quot;service&quot;</strong> as in – <br/>
+            The <a href="https://www.are.na/blog/open-call-for-pitches-for-the-2023-are-na-annual">forthcoming Are.na Annual</a> is themed <strong>&quot;service&quot;</strong> as in – <br/>
             an act of helping or supplying;<br/> 
             to repair or maintain;<br /> 
             to provide a public need;<br/>
@@ -48,14 +48,10 @@ export default function Home() {
             a place to refuel
           </p>
           <p>
-            For the <a href="https://www.are.na/blog/open-call-for-pitches-for-the-2023-are-na-annual">2023 Are.na Annual</a>, we are asking ourselves: <br/>
-            What is it we are in service of? <br/>
+            What else can be considered as a service?
           </p>
           <p>
-            It could be a person, a concept, an idea, a place, a dream, anything. <br/>
-          </p>
-          <p>
-            We will publish selected entries in the 2023 Are.na Annual, and all entries will be visible on this page. <br/>
+            Filling in the blank below will add to this page and populate the channel “<a href="https://www.are.na/are-na-team/______-as-a-service">_____ as a service.</a>” Selected entries will be published in the 2023 Are.na Annual, out in January. 
           </p>
         </Description>
 
