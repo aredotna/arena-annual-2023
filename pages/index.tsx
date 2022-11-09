@@ -53,6 +53,9 @@ export default function Home() {
             What is it we are in service of? <br/>
           </p>
           <p>
+            It could be a person, a concept, an idea, a place, a dream, anything. <br/>
+          </p>
+          <p>
             We will publish all selected entries in the 2023 Are.na Annual.
           </p>
         </Description>
