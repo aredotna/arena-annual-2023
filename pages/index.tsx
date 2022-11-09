@@ -2,10 +2,9 @@ import Head from 'next/head'
 import { useSession } from 'next-auth/react'
 import styled from "styled-components"
 import { AuthButton } from "../components/AuthButton"
-import { useArena } from '../hooks/useArena'
 import { Prompt } from '../components/Prompt'
 
-const Container = styled.div`
+const Main = styled.div`
   display: flex;
   flex-direction: column;
   margin: 2rem;
@@ -29,14 +28,13 @@ export default function Home() {
   const user = data?.user as any
 
   return (
-    <div>
-      <Head>
-        <title>In Service Of / Are.na</title>
-        <meta name="description" content="On the occassion of the Are.na Annual 2023" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Container>
+    <>
+      <Main>
+        <Head>
+          <title>In Service Of / Are.na</title>
+          <meta name="description" content="On the occassion of the Are.na Annual 2023" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <AuthButton />
         <Description>
           <strong>In Service Of</strong>
@@ -61,7 +59,7 @@ export default function Home() {
         </Description>
 
         {!loading && <Prompt user={user} />}
-      </Container>
-    </div>
+      </Main>
+    </>
   )
 }
