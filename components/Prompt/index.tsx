@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import { signIn } from 'next-auth/react'
 import styled from 'styled-components'
 import { useArena } from '../../hooks/useArena'
@@ -47,23 +47,31 @@ export const Prompt: React.FC<PromptProps> = ({
 }) => {
   const loggedIn = !!user && user.id
   const [entry, setEntry] = useState<string>('')
+  const [loading, setLoading] = useState<boolean>(false)
   const arena = useArena()
+  const inputRef = useRef<HTMLInputElement>(null)
 
-  const updateEntry = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const updateEntry = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setEntry(e.target.value)
-  }
+  }, [setEntry])
 
   const addEntry = useCallback(() => {
-    arena?.channel('entries').createBlock({ content: entry })
-  }, [arena, entry])
+    setLoading(true)
+    arena?.channel('______-as-a-service').createBlock({ content: entry }).then(() => {
+      setLoading(false)
+
+      if (!inputRef?.current) return
+      inputRef.current.value = ''
+    })
+  }, [arena, entry, inputRef])
 
   return (
     <Container loggedIn={loggedIn}>
       {!loggedIn && <><Link onClick={() => signIn('arena')}>Sign in</Link> to add your entry</>}
       {loggedIn && (
         <>
-          <Label><Input onChange={updateEntry} /> as a service</Label>
-          <Button onClick={addEntry}>Add entry</Button>
+          <Label><Input onChange={updateEntry} ref={inputRef} /> as a service</Label>
+          <Button onClick={addEntry} disabled={loading}>{loading ? "Adding..." : "Add entry"}</Button>
         </>
       )}
     </Container>
