@@ -19,7 +19,7 @@ export const Entries: React.FC = () => {
   useEffect(() => {
     if (!arena) return
 
-    arena.channel('as-a-service').get().then((channel) => {
+    arena.channel('______-as-a-service').get().then((channel) => {
       if (!channel || !channel.contents) return
       setEntries(channel.contents as Item[])
     })
