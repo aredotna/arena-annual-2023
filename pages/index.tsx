@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/react'
 import styled from "styled-components"
 import { AuthButton } from "../components/AuthButton"
 import { Prompt } from '../components/Prompt'
+import { Entries } from '../components/Entries'
 
 const Main = styled.div`
   display: flex;
@@ -31,13 +32,13 @@ export default function Home() {
     <>
       <Main>
         <Head>
-          <title>In Service Of / Are.na</title>
+          <title>As a Service / Are.na</title>
           <meta name="description" content="On the occassion of the Are.na Annual 2023" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <AuthButton />
         <Description>
-          <strong>In Service Of</strong>
+          <strong>_____ as a Service</strong>
           <p>
             <strong>&quot;service&quot;</strong> as in – <br/>
             an act of helping or supplying;<br/> 
@@ -59,6 +60,10 @@ export default function Home() {
         </Description>
 
         {!loading && <Prompt user={user} />}
+
+        {!loading && (
+          <Entries />
+        )}
       </Main>
     </>
   )

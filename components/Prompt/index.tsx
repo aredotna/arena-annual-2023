@@ -50,7 +50,7 @@ export const Prompt: React.FC<PromptProps> = ({
       {!loggedIn && <><Link onClick={() => signIn('arena')}>Sign in</Link> to add your entry</>}
       {loggedIn && (
         <>
-          <Label>{user.name} is in service of <Input /></Label>
+          <Label><Input /> as a service</Label>
           <Button>Add entry</Button>
         </>
       )}
