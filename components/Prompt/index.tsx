@@ -62,6 +62,8 @@ export const Prompt: React.FC<PromptProps> = ({
 
       if (!inputRef?.current) return
       inputRef.current.value = ''
+
+      window.location.reload()
     })
   }, [arena, entry, inputRef])
 
