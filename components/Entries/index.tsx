@@ -8,7 +8,9 @@ const Container = styled.div`
   padding: 2rem 0;
 `
 
-const EntryLine = styled.div``
+const EntryLine = styled.div`
+  font-size: 1.5rem;
+`
 
 type Item = (ArenaBlock | (ArenaChannel & ArenaChannelWithDetails) & ConnectionData)
 
