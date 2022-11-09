@@ -41,7 +41,7 @@ export default function Home() {
         <Description>
           <strong>In Service Of</strong>
           <p>
-            <strong>“service"</strong> as in – <br/>
+            <strong>&quot;service&quot;</strong> as in – <br/>
             an act of helping or supplying;<br/> 
             to repair or maintain;<br /> 
             to provide a public need;<br/>
