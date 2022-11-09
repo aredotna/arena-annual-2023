@@ -16,14 +16,15 @@ const Link = styled.a`
 `
 
 const Label = styled.div`
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 `
 
 const Input = styled.input`
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   padding: 0.5rem;
   margin: 0.5rem;
-  border: 1px solid #ccc;
+  border: none;
+  border-bottom: 1px solid #2f2f2f;
 `
 
 interface PromptProps {
