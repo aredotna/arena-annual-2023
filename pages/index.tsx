@@ -56,7 +56,7 @@ export default function Home() {
             It could be a person, a concept, an idea, a place, a dream, anything. <br/>
           </p>
           <p>
-            We will publish all selected entries in the 2023 Are.na Annual.
+            We will publish selected entries in the 2023 Are.na Annual, and all entries will be visible on this page. <br/>
           </p>
         </Description>
 

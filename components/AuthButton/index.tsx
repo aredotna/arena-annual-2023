@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import styled from 'styled-components'
+import Image from 'next/image'
 
 const Container = styled.div`
   position: fixed;
@@ -29,20 +30,23 @@ export const AuthButton: React.FC = () => {
   }
 
   return (
-    <>
+    <Container>
+      <div>
+        <Image src="/arena-mark.svg" alt="are.na logo" width={30} height={30} />
+      </div>
       {data && (
-        <Container>
+        <>
           Logged in as {data?.user?.name}
           <Link onClick={() => signOut()}>Sign out</Link>
-        </Container>
+        </>
       )}
 
       {!data && (
-        <Container>
+        <>
           Not logged in
           <Link onClick={() => signIn('arena')}>Sign in</Link>
-        </Container>
+        </>
       )}
-    </>
+    </Container>
   )
 }
