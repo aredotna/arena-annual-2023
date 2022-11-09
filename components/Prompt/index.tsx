@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import { signIn } from 'next-auth/react'
 import styled from 'styled-components'
+import { useArena } from '../../hooks/useArena'
 
 const Container = styled.div<{ loggedIn: boolean }>`
   padding: 2rem;
@@ -45,13 +46,24 @@ export const Prompt: React.FC<PromptProps> = ({
   user,
 }) => {
   const loggedIn = !!user && user.id
+  const [entry, setEntry] = useState<string>('')
+  const arena = useArena()
+
+  const updateEntry = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEntry(e.target.value)
+  }
+
+  const addEntry = useCallback(() => {
+    arena?.channel('entries').createBlock({ content: entry })
+  }, [arena, entry])
+
   return (
     <Container loggedIn={loggedIn}>
       {!loggedIn && <><Link onClick={() => signIn('arena')}>Sign in</Link> to add your entry</>}
       {loggedIn && (
         <>
-          <Label><Input /> as a service</Label>
-          <Button>Add entry</Button>
+          <Label><Input onChange={updateEntry} /> as a service</Label>
+          <Button onClick={addEntry}>Add entry</Button>
         </>
       )}
     </Container>

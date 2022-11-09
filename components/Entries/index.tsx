@@ -35,7 +35,6 @@ export const Entries: React.FC = () => {
         if (!entry.content) return null
 
         const string = `${entry.content} as a Service`
-        // get the first letter of each word
         const acronym = string.match(/\b(\w)/g)?.join('')
     
         return (
