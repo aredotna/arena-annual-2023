@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useArena } from '../../hooks/useArena'
 
 const Container = styled.div<{ loggedIn: boolean }>`
-  padding: 2rem;
+  padding: 2rem 0;
   text-align: center;
 
   ${props => !props.loggedIn && `
