@@ -23,7 +23,7 @@ const Label = styled.div`
 
 const Input = styled.input`
   font-size: 1.5rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   margin: 0.5rem;
   border: none;
   border-bottom: 1px solid #2f2f2f;
