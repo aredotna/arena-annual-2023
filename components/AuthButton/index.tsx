@@ -15,6 +15,13 @@ const Link = styled.a`
   cursor: pointer;
 `
 
+// hide on mobile
+const Details = styled.div`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`
+
 export const AuthButton: React.FC = () => {
   const session = useSession() || {}
   const { data, status } = session
@@ -34,19 +41,21 @@ export const AuthButton: React.FC = () => {
       <div>
         <Image src="/arena-mark.svg" alt="are.na logo" width={30} height={30} />
       </div>
-      {data && (
-        <>
-          Logged in as {data?.user?.name}
-          <Link onClick={() => signOut()}>Sign out</Link>
-        </>
-      )}
+      <Details>
+        {data && (
+          <>
+            Logged in as {data?.user?.name}
+            <Link onClick={() => signOut()}>Sign out</Link>
+          </>
+        )}
 
-      {!data && (
-        <>
-          Not logged in
-          <Link onClick={() => signIn('arena')}>Sign in</Link>
-        </>
-      )}
+        {!data && (
+          <>
+            Not logged in
+            <Link onClick={() => signIn('arena')}>Sign in</Link>
+          </>
+        )}
+      </Details>
     </Container>
   )
 }

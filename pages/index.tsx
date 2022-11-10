@@ -58,9 +58,7 @@ export default function Home() {
 
         {!loading && <Prompt user={user} />}
 
-        {!loading && (
-          <Entries />
-        )}
+        <Entries />
       </Main>
     </>
   )

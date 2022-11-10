@@ -8,15 +8,12 @@ export const useArena = () => {
   const loading = status === "loading"
 
   useEffect(() => {
-    if (data) {
-      const typedData = data as any;
-      const accessToken = typedData.user.accessToken
-      const arena = new ArenaClient({
-        token: accessToken,
-      });
+    const typedData = data as any;
+    const accessToken = typedData?.user.accessToken
+    const options = data ? { token: accessToken } : undefined;
+    const arena = new ArenaClient(options);
 
-      setClient(arena);
-    }
+    setClient(arena);
   }, [loading])
 
   return client;
