@@ -1,5 +1,5 @@
-import { ArenaChannelContents, ArenaBlock, ArenaChannel, ArenaChannelWithDetails, ConnectionData } from 'arena-ts'
-import React, { useEffect, useState } from 'react'
+import { ArenaChannelContents, ArenaBlock, ArenaChannel, ArenaChannelWithDetails, ConnectionData, GetChannelsApiResponse } from 'arena-ts'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 import { useArena } from '../../hooks/useArena'
@@ -12,19 +12,38 @@ const EntryLine = styled.div`
   font-size: 1.5rem;
 `
 
+const LoadMoreButton = styled.button`
+  margin-top: 1rem;
+  font-size: 1.2rem;
+`
+
 type Item = (ArenaBlock | (ArenaChannel & ArenaChannelWithDetails) & ConnectionData)
+type Channel = ArenaChannel & ArenaChannelWithDetails
+const PER = 100
 
 export const Entries: React.FC = () => {
   const [entries, setEntries] = useState<Item[]>([])
   const arena = useArena()
 
-  useEffect(() => {
+  const [page, setPage] = useState(1)
+  const [hasMore, setHasMore] = useState(false)
+
+  const fetchEntries = useCallback(async () => {
     if (!arena) return
 
-    arena.channel('______-as-a-service').get({ forceRefresh: true }).then((channel) => {
+    arena.channel('______-as-a-service').get({ forceRefresh: true, per: PER, page }).then((channel) => {
       if (!channel || !channel.contents) return
-      setEntries(channel.contents as Item[])
+      const contents = [...entries, ...channel.contents as Item[]]
+      setEntries(contents)
+
+      const length = ((channel as unknown) as Channel).length
+      setHasMore(length > PER * page)
+      setPage(page + 1)
     })
+  }, [arena, page])
+
+  useEffect(() => {
+    fetchEntries()
   }, [arena])
 
   return (
@@ -45,6 +64,11 @@ export const Entries: React.FC = () => {
           </div>
         )
       })}
+
+      {/* Load more button */}
+      {hasMore && (
+        <LoadMoreButton onClick={fetchEntries}>Load more</LoadMoreButton>
+      )}
     </Container>
   )
 }
